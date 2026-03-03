@@ -1,30 +1,29 @@
-Bitespeed Identity Reconciliation API
+# 🚀 Bitespeed Identity Reconciliation API
 
-This project is a backend service built for the Bitespeed Backend Task.
-It implements identity reconciliation logic to link multiple purchases made using different email addresses and phone numbers to a single customer.
+A backend service built for Bitespeed's identity reconciliation task.  
+This service consolidates multiple contact entries (email & phoneNumber) into a single customer identity.
 
-🚀 Tech Stack
+---
 
-Runtime: Node.js
+## 📌 Features
 
-Framework: Express.js
+- ✅ **POST /identify** endpoint
+- ✅ Links contacts sharing same email or phone number
+- ✅ Maintains one **primary** contact
+- ✅ Converts overlapping primaries into secondaries
+- ✅ Returns consolidated identity response
 
-Database: PostgreSQL
+---
+## 🧠 API Specification
 
-Query Builder: pg (node-postgres)
+### 🔹 POST `/identify`
 
-Environment Config: dotenv
+---
 
-📌 Problem Statement
+### Request Body
 
-FluxKart collects customer contact information during checkout.
-Customers may use:
-
-Different emails
-
-Different phone numbers
-
-The goal is to identify whether different contact details belong to the same person and consolidate them correctly.
-🗄 Database Schema
-
-Table: Contact
+```json
+{
+  "email": "morpheus@matrix.com",
+  "phoneNumber": "101101"
+}
